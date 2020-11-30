@@ -1,0 +1,45 @@
+﻿@model IEnumerable<BookStore.Models.Book>
+
+@{
+    ViewData["Title"] = "Catalog";
+    Layout = "_Layout";
+}
+
+<div class="row">
+    <div class="col">
+        <a asp-action="AddBook" class="btn btn-primary">Add</a>
+    </div>
+    <div class="col-8">
+    </div>
+    <div class="col-sm">
+        <form class="form-inline" asp-controller="Book" asp-action="Index" method="get">
+            <input class="form-control" type="text" name="title" placeholder="Search" aria-label="Search">
+        </form>
+    </div>
+</div>
+
+<div>
+    <table class="table">
+        <thead class="tab">
+        <tr>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Author</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (Book book in Model)
+        {
+            <tr>
+                <td>@book.Title</td>
+                <td>@book.Price</td>
+                <td>@book.Author</td>
+                <td>
+                    <a type="submit" class="btn btn-primary" href="~/Book/Buy/@book.Id">Buy</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

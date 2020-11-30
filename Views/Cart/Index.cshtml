@@ -1,0 +1,25 @@
+﻿@model IEnumerable<BookStore.Models.Purchase>
+
+@{
+    Layout = "_Layout";
+}
+
+<div>
+    <table class="table">
+        <thead class="tab">
+        <tr>
+            <th>Person</th>
+            <th>Purchase date</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (Purchase purchase in Model)
+        {
+            <tr>
+                <td>@purchase.Person</td>
+                <td>@purchase.DateTime</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

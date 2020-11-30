@@ -1,0 +1,25 @@
+﻿@model BookStore.Models.Purchase
+
+@{
+    ViewData["Title"] = "Order registration";
+    Layout = "_Layout";
+}
+<br/>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Buy">
+            <div class="form-group">
+                <label asp-for="Person">Name: </label>
+                <input class="form-control" asp-for="Person"/>
+                <span asp-validation-for="Person" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address">Address: </label>
+                <input class="form-control" asp-for="Address"/>
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <button class="btn btn-primary" type="submit">Buy</button>
+        </form>
+    </div>
+</div>
